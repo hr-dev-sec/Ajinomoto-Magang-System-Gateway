@@ -1,0 +1,1 @@
+# Ajinomoto-Magang-System-Gateway
