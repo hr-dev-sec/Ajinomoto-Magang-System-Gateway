@@ -1,134 +1,30 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AMOFIS — Ajinomoto Magang Corporate Gateway</title>
-  <meta name="description" content="Portal Validasi Sistem Magang Terpusat - HR-1 Development, Mojokerto Factory.">
-  <meta name="theme-color" content="#d90429">
-
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/0/01/Ajinomoto_Group_Global_Brand_logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Ajinomoto Magang System Gateway</title>
+	<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/0/01/Ajinomoto_Group_Global_Brand_logo.png">
 
   <style>
-    /* Reset & Base Styles */
-    body, html {
+    body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden; /* Mencegah scrollbar ganda */
-      background-color: #0b0c10; /* Warna latar elegan */
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden; /* Biar ga ada scrollbar */
+      background-color: #0d1117; /* Warna background gelap biar pas loading ga silau */
     }
-
-    /* Iframe Styling */
     iframe {
       border: none;
       width: 100vw;
       height: 100vh;
       display: block;
-      opacity: 0; /* Disembunyikan dulu sebelum selesai dimuat */
-      transition: opacity 0.8s ease-in-out;
-    }
-
-    /* ================= PRELOADER STYLES ================= */
-    #corporate-preloader {
-      position: fixed;
-      inset: 0;
-      background-color: #0b0c10;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-      transition: opacity 0.6s cubic-bezier(0.8, 0, 0.2, 1);
-    }
-
-    .preloader-logo {
-      height: 60px;
-      margin-bottom: 30px;
-      object-fit: contain;
-    }
-
-    /* Animated Loading Bar */
-    .loading-bar-container {
-      width: 200px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 15px;
-    }
-
-    .loading-bar {
-      position: absolute;
-      top: 0; left: 0;
-      height: 100%;
-      width: 40%;
-      background: #d90429; /* Ajinomoto Red */
-      animation: slideRight 1.5s infinite ease-in-out;
-    }
-
-    @keyframes slideRight {
-      0% { left: -40%; }
-      100% { left: 100%; }
-    }
-
-    .preloader-text {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <div id="corporate-preloader">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Ajinomoto_Group_Global_Brand_logo.png" alt="Ajinomoto Logo" class="preloader-logo">
-    
-    <div class="loading-bar-container">
-      <div class="loading-bar"></div>
-    </div>
-    
-    <div class="preloader-text">Connecting to Secure Server</div>
-  </div>
-
-  <iframe id="main-system" allowfullscreen></iframe>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const iframe = document.getElementById('main-system');
-      const preloader = document.getElementById('corporate-preloader');
-
-      // 1. Definisikan Base URL Google Apps Script Anda
-      const gasBaseUrl = "https://script.google.com/macros/s/AKfycbw2YxkW-EEHaS3HRWNee2Auf25P_9_F8wpZzr8q6W0xU5qS0ancTGLLffC7OZNyIm0CSQ/exec";
-      
-      // 2. Ambil parameter URL saat ini (misalnya: ?p=FormMBKM)
-      const urlParams = window.location.search;
-      
-      // 3. Gabungkan Base URL dengan Parameter, lalu suntikkan ke iframe
-      iframe.src = gasBaseUrl + urlParams;
-
-      // 4. Fungsi dijalankan otomatis ketika iframe dari GAS selesai mengambil data
-      iframe.onload = function() {
-        // Memudarkan preloader
-        preloader.style.opacity = '0';
-        
-        // Memunculkan iframe secara halus
-        iframe.style.opacity = '1';
-
-        // Menghapus elemen preloader dari HTML setelah animasi memudar selesai (600ms)
-        setTimeout(function() {
-          preloader.style.display = 'none';
-        }, 600);
-      };
-    });
-  </script>
+  <iframe src="https://script.google.com/macros/s/AKfycbw2YxkW-EEHaS3HRWNee2Auf25P_9_F8wpZzr8q6W0xU5qS0ancTGLLffC7OZNyIm0CSQ/exec"></iframe>
 
 </body>
 </html>
